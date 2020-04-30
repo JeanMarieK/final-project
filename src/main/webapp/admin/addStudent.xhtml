@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>DORG System</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/adminTemplate.xhtml">
+            <ui:define name="content">
+                <o:importConstants type="Domain.EGender" />
+                <h:form enctype="multipart/form-data">
+
+                    <p:fieldset legend="Student Infomation">
+                        <h:panelGrid columns="2" style="margin-bottom:10px">
+                            <p:outputLabel value="Student Id"/>
+                            <p:inputText value="#{studentModel.student.studentId}" required="true" requiredMessage="Field Student ID is required"/>
+                            <p:outputLabel value="National Id"/>
+                            <p:inputText value="#{studentModel.student.nationalId}" required="true" requiredMessage="Field National ID is required"/>
+                            <p:outputLabel value="Name"/>
+                            <p:inputText label="Name" value="#{studentModel.student.name}" required="true" requiredMessage="Field Name is required"/>
+                            <p:outputLabel value="Gender"/>
+                            <p:selectOneMenu label="Gender" value="#{studentModel.gender}" required="true" requiredMessage="Field Gender is required">
+                                <f:selectItem  itemLabel="select"/>
+                                <f:selectItem itemValue="FEMALE" itemLabel="Female"/>
+                                <f:selectItem itemValue="MALE" itemLabel="Male"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Email"/>
+                            <p:inputText label="Email" value="#{studentModel.student.email}" required="true" requiredMessage="Field Email is required"/>
+                            <p:outputLabel value="Phone"/>
+                            <p:inputText label="Phone" value="#{studentModel.student.phone}" required="true" requiredMessage="Field Phone is required"/>
+                            <p:outputLabel value="Program"/>
+                            <p:inputText label="Program" value="#{studentModel.student.program}" required="true" requiredMessage="Field Program is required"/>
+                            <p:outputLabel value="Passport photo"/>
+                            <p:fileUpload value="#{studentModel.pic}" mode="simple"  label="Choose (jpg,png)" skinSimple="true" sizeLimit="1048576" required="true" requiredMessage="Passport photo is required"/>
+
+                            <h:commandButton value="Submit" action="#{studentModel.addStudent()}"/>
+
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <hr/>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>DORG System</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/adminTemplate.xhtml">
+            <ui:define name="content">
+                <p:messages redisplay="false"/>
+                <h:form id="addFaculty">
+
+                    <p:fieldset legend="Faculty Infomation">
+                        <h:panelGrid columns="2" style="margin-bottom:10px">
+                            <p:outputLabel value="ID"/>
+                            <p:inputText value="#{facultyModel.faculty.facultyId}" required="true" requiredMessage="Field Name is required"/>
+                            
+                            <p:outputLabel value="Name"/>
+                            <p:inputText value="#{facultyModel.faculty.facultyName}" required="true" requiredMessage="Field Name is required"/>
+                            
+                            <h:commandButton value="Submit" action="#{facultyModel.addFaculty()}"/>
+
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <hr/>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

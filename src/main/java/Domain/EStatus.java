@@ -10,5 +10,5 @@ package Domain;
  * @author student
  */
 public enum EStatus {
-    ACTIVE, NO_ACTIVE
+    ACTIVE, INACTIVE
 }

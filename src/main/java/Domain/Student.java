@@ -6,7 +6,11 @@
 package Domain;
 
 import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -16,13 +20,17 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Student extends Person {
-    @Id
+
+    @Column(nullable = false)
     private int studentId;
     private String program;
     @ManyToOne
-    private List<Faculty> FacultyList;
-    @ManyToOne
-    private List<Department> DepartmentList;
+    private Department department;
+
+    @PostConstruct
+    public void init() {
+        department = new Department();
+    }
 
     public int getStudentId() {
         return studentId;
@@ -40,22 +48,12 @@ public class Student extends Person {
         this.program = program;
     }
 
-    public List<Faculty> getFacultyList() {
-        return FacultyList;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setFacultyList(List<Faculty> FacultyList) {
-        this.FacultyList = FacultyList;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    public List<Department> getDepartmentList() {
-        return DepartmentList;
-    }
-
-    public void setDepartmentList(List<Department> DepartmentList) {
-        this.DepartmentList = DepartmentList;
-    }
-
-    
-    
 }

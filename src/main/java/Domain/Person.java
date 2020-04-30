@@ -6,32 +6,38 @@
 package Domain;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.MappedSuperclass;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
  * @author student
  */
+@MappedSuperclass
+public abstract class Person {
 
-public abstract class Person  {
     @Id
-    private long nId;
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private long nationalId;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private EGender gender;
     private String phone;
     private String email;
-    private String photo;
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] photo;
     private EStatus status;
+    private EGender gender;
 
-    public long getnId() {
-        return nId;
+    public EGender getGender() {
+        return gender;
     }
 
-    public void setnId(long nId) {
-        this.nId = nId;
+    public void setGender(EGender gender) {
+        this.gender = gender;
     }
 
     public String getName() {
@@ -40,14 +46,6 @@ public abstract class Person  {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public EGender getGender() {
-        return gender;
-    }
-
-    public void setGender(EGender gender) {
-        this.gender = gender;
     }
 
     public String getPhone() {
@@ -66,13 +64,15 @@ public abstract class Person  {
         this.email = email;
     }
 
-    public String getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
+
+    
 
     public EStatus getStatus() {
         return status;
@@ -81,6 +81,15 @@ public abstract class Person  {
     public void setStatus(EStatus status) {
         this.status = status;
     }
+
+    public long getNationalId() {
+        return nationalId;
+    }
+
+    public void setNationalId(long nationalId) {
+        this.nationalId = nationalId;
+    }
     
     
+
 }

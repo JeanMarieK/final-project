@@ -6,6 +6,7 @@
 package Domain;
 
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,12 @@ public class Department {
     private String departmentName;
 
     @ManyToOne
-    private List<Faculty> facultyList;
+    private Faculty faculty=new Faculty();
+    
+//    @PostConstruct
+//    public void init() {
+//        faculty = new Faculty();
+//    }
     
     public int getDepartmentId() {
         return departmentId;
@@ -44,17 +50,12 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public List<Faculty> getFacultyList() {
-        return facultyList;
+    public Faculty getFaculty() {
+        return faculty;
     }
 
-    public void setFacultyList(List<Faculty> facultyList) {
-        this.facultyList = facultyList;
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
-
-    
-
-    
-    
-    
+ 
 }

@@ -10,5 +10,7 @@ package Domain;
  * @author student
  */
 public enum EGender {
-    MALE, FEMALE
+    MALE, FEMALE;
+    
+    
 }

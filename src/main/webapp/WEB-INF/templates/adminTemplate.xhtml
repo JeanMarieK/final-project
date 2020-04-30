@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>DORG System</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="140" header="DORG System" resizable="false" closable="false" collapsible="false">
+                <h:outputText style="font-size:xx-large; font-weight:bold;" value="DORG System" /> 
+            </p:layoutUnit>
+            <p:layoutUnit position="south" size="50" footer="@copyright2020, DORG Sys" resizable="false" closable="false" collapsible="false"/>
+
+            <p:layoutUnit position="west" size="335" header="Admin " resizable="false" closable="false" collapsible="true">
+                <h:form>
+                    <p:menu toggleable="true" style="width:300px" transient="true">
+                        <p:submenu label="Students">
+                            <p:menuitem value="Register Students" icon="ui-icon-disk" action="/admin/addStudent.xhtml" ajax="false"/>
+                            <p:menuitem value="View Students" icon="ui-icon-disk" action="#" ajax="false"/>
+                        </p:submenu>
+                        <p:submenu label="Employees">
+                            <p:menuitem value="Register Employees" icon="ui-icon-disk" action="#" ajax="false"/>
+                            <p:menuitem value="View Employees" icon="ui-icon-disk" action="#" ajax="false"/>
+                        </p:submenu>
+                        <p:submenu label="Devices">
+                            <p:menuitem value="Register Devices" icon="ui-icon-disk" action="#" ajax="false"/>
+                            <p:menuitem value="View Devices" icon="ui-icon-disk" action="#" ajax="false"/>
+                            <p:menuitem value="Accusations" icon="ui-icon-disk" action="#" ajax="false"/>
+                        </p:submenu>
+                        <p:submenu label="Faculty">
+                            <p:menuitem value="Register a Faculty" icon="ui-icon-disk" action="/admin/addFaculty.xhtml" ajax="false"/>
+                            <p:menuitem value="View Faculties" icon="ui-icon-disk" action="#" ajax="false"/>
+                        </p:submenu>
+                        <p:submenu label="Department">
+                            <p:menuitem value="Register a Department" icon="ui-icon-disk" action="/admin/addDepartment.xhtml" ajax="false"/>
+                            <p:menuitem value="View Departments" icon="ui-icon-disk" action="#" ajax="false"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <ui:insert name="content">
+                    <h:outputText style="font-size:x-large; font-weight:bold; color:royalblue;" value="Welcome to DORG System, Administrator" />
+                </ui:insert>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+
