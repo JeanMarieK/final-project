@@ -9,6 +9,6 @@ package Domain;
  *
  * @author student
  */
-public enum EUserType {
-   ADMIN, SUPERVISOR, SECURITY, USER
+public enum EStaffType {
+    SUPERVISOR, SECURITY, TECHNICIAN, RECEPTIONIST, CLEANER, OTHER
 }
